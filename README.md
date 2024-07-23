@@ -8,11 +8,7 @@ git clone https://github.com/negativenagesh/Medical_Chatbot-Llama2.git
 ```
 2. Create a Conda Environment:
 ```bash
-<<<<<<< HEAD
 conda create --name mcbot python==3.8 -y
-=======
- conda create --name mcbot python==3.8.1 -y
->>>>>>> cbbdd5df9d42cdb2e23c83d602801b192e9d6b29
 ```
 3. Activate the Environment:
 ```bash
