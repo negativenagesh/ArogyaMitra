@@ -1,7 +1,10 @@
 ctransformers==0.2.5
 sentence-transformers==2.2.2
 pinecone-client
-langchain==0.1.6
+langchain==0.1.17
+langchain-core==0.1.21
+langsmith==0.0.83
+langchain-community==0.0.20
 flask
 
 
