@@ -249,3 +249,44 @@ A library built on PyTorch for designing and evaluating deep learning models for
 * TextBlob:
 
 A simple library for processing textual data. It provides a simple API for diving into common NLP tasks. Use Cases: Text processing, sentiment analysis, classification.
+
+## Libraries imported in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) 
+
+1. LangChain (PromptTemplate, RetrievalQA, HuggingFaceEmbeddings):
+
+* PromptTemplate:
+
+This is used to create structured prompts for the language model, ensuring consistency and proper formatting in the inputs fed to the model. It helps in generating better and more reliable outputs.
+
+* RetrievalQA:
+
+This chain is designed for question-answering systems that need to retrieve relevant documents before generating an answer. It combines retrieval and generation in one seamless process.
+
+* HuggingFaceEmbeddings:
+
+These embeddings convert text into dense vector representations, capturing the semantic meaning. They are essential for tasks like similarity search, document retrieval, and clustering.
+
+2. Pinecone:
+
+Pinecone is a vector database optimized for storing and querying high-dimensional vectors. It allows for fast similarity searches, making it ideal for applications where you need to find the most relevant documents or data points based on their embeddings.
+
+3. PyMuPDFLoader and DirectoryLoader
+
+* PyMuPDFLoader:
+
+This loader is used for extracting text from PDF documents using the PyMuPDF library. It is useful when you need to process and analyze text content from PDFs.
+
+* DirectoryLoader: 
+
+This loader allows you to read multiple documents from a directory. It supports various file types and is helpful for batch processing and loading large sets of documents for analysis or indexing.
+
+4. RecursiveCharacterTextSplitter
+
+This tool splits long texts into smaller, manageable chunks based on character count. It ensures that the text fits within the token limits of language models and helps in efficient text processing and retrieval.
+
+5. CTransformers
+
+* CTransformers: 
+
+This module is part of the LangChain library and provides an interface to use transformer models more efficiently. It can be particularly useful for deploying transformer models in a production environment where performance and resource optimization are critical.
+
