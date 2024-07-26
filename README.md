@@ -508,3 +508,19 @@ embeddings.embed_query: Function used to generate embeddings for query text.
 3. "text"
 
 * Indicates the metadata field used for document content. This setup enables searching for documents in Pinecone based on their embeddings and the provided query text.
+
+# Configuring the Base Retriever for Document Search in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
+
+1. base_retriever 
+
+* Creates a retriever object for querying documents.
+
+2. docsearch.as_retriever
+
+* Converts the docsearch object into a retriever format.
+
+3. search_kwargs={"k": 5} 
+
+* Specifies search parameters, with k set to 5, indicating that the retriever should return the top 5 most relevant documents based on the query.
+
+This setup enables efficient retrieval of a specified number of top documents from Pinecone based on their relevance to the query.
