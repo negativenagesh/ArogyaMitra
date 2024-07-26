@@ -368,4 +368,9 @@ The chatbot can store and retrieve embeddings of past conversation snippets to m
 
 For chatbots designed to answer FAQs, user queries can be converted into embeddings and matched against a pre-indexed knowledge base in Pinecone to find the most relevant answers.
 
-#
+# All Functions in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb)
+
+1. load_pdf Function
+
+* The load_pdf function is designed to load PDF files from a specified directory.
+
