@@ -304,6 +304,10 @@ This tool splits long texts into smaller, manageable chunks based on character c
 
 * The LLMChainExtractor from the langchain.retrievers document_compressors module is a specialized component designed to extract and compress relevant information from documents using a large language model (LLM). This extractor is particularly useful in contexts where documents contain a lot of information, but only specific parts are relevant to the query.
 
+10. from pinecone import Pinecone
+
+* The Pinecone class from the pinecone module is the main interface for interacting with the Pinecone vector database service. Pinecone provides a highly scalable, low-latency infrastructure for managing and querying high-dimensional vector embeddings, which are crucial for a variety of machine learning and natural language processing tasks, such as semantic search, recommendation systems, and more.
+
 # Creating Pinecone Index in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb)
 
 Creating a Pinecone index is essential for managing vector embeddings efficiently. In the context of chatbots, especially those requiring sophisticated natural language understanding and response generation, Pinecone provides the following benefits:
