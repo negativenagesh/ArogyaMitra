@@ -493,3 +493,18 @@ Uses exact or partial keyword matching without semantic understanding, which may
 * Limits the sampling to the top k tokens (40).
 
 This setup is used to configure and use a specific language model for generating text or responses based on the given parameters.
+
+# Setting Up Document Search with LangChain and Pinecone in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
+
+1. LangChainPinecone 
+
+* Initializes a document search object.
+
+2. index
+
+* The Pinecone index where document embeddings are stored.
+embeddings.embed_query: Function used to generate embeddings for query text.
+
+3. "text"
+
+* Indicates the metadata field used for document content. This setup enables searching for documents in Pinecone based on their embeddings and the provided query text.
