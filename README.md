@@ -573,3 +573,14 @@ This setup enables efficient retrieval of compressed and contextually relevant i
 
 This setup allows the QA system to answer questions by retrieving relevant information from documents and generating responses using the specified language model and retrieval strategy.
 
+# Suppressing User Warnings in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
+
+1. import warnings
+
+Imports the warnings module, which handles warning messages.
+
+2. warnings.filterwarnings("ignore", category=UserWarning)
+
+* Sets the filter to ignore warnings of the category UserWarning. This prevents such warnings from being displayed in the output.
+
+This is typically done to reduce clutter in the output, especially when warnings are known and not relevant to the current execution context.
