@@ -524,3 +524,23 @@ embeddings.embed_query: Function used to generate embeddings for query text.
 * Specifies search parameters, with k set to 5, indicating that the retriever should return the top 5 most relevant documents based on the query.
 
 This setup enables efficient retrieval of a specified number of top documents from Pinecone based on their relevance to the query.
+
+# Configuring Document Compression and Retrieval in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
+
+1. compressor
+
+* Creates a compression component using LLMChainExtractor initialized with the llm model. This component extracts and compresses relevant information from documents.
+
+2. etriever 
+
+* Initializes a ContextualCompressionRetriever with:
+
+3. base_compressor
+
+* The compressor created earlier, used for compressing document content.
+
+4. base_retriever 
+
+* The base_retriever for retrieving documents from Pinecone.
+
+This setup enables efficient retrieval of compressed and contextually relevant information from documents, improving search accuracy and relevance.
