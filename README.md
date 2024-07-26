@@ -382,7 +382,7 @@ For chatbots designed to answer FAQs, user queries can be converted into embeddi
 
 * The download_hugging_face_embeddings function initializes and returns a Hugging Face embeddings object using the sentence-transformers/all-MiniLM-L6-v2 model.
 
-# Creating Vector Embeddings
+# Creating Vector Embeddings in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
 
 1. What Are Vector Embeddings?
 
@@ -420,30 +420,44 @@ These are earlier methods for generating word embeddings that capture semantic m
 
 Uses exact or partial keyword matching without semantic understanding, which may be less effective for nuanced queries.
 
-## Here I used vector embedding like
+## Here I used vector embedding in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
 
 1. Generate Embeddings  
 
-It converts text chunks into numerical embeddings using the previously initialized Hugging Face model.
+* It converts text chunks into numerical embeddings using the previously initialized Hugging Face model.
 
 2. Assign IDs and Store Embeddings 
 
-It assigns a unique ID to each embedding and stores them in a dictionary.
+* It assigns a unique ID to each embedding and stores them in a dictionary.
 
 3. Upsert to Pinecone 
 
-It uploads these embeddings, along with associated metadata, to a Pinecone index.
+* It uploads these embeddings, along with associated metadata, to a Pinecone index.
 
 ## Why Use This?
 
-* Efficient Search 
+1. Efficient Search 
 
-By uploading embeddings to Pinecone, you enable efficient similarity search and retrieval of text chunks based on their content.
+* By uploading embeddings to Pinecone, you enable efficient similarity search and retrieval of text chunks based on their content.
 
-* Scalability 
+2. Scalability 
 
-Pinecone manages large-scale vector data, making it suitable for handling and querying extensive text datasets.
+* Pinecone manages large-scale vector data, making it suitable for handling and querying extensive text datasets.
 
-* Relevance 
+3. Relevance 
 
-Associating metadata (like the original text content) with embeddings helps in retrieving and understanding the context of the data during searches.
+* Associating metadata (like the original text content) with embeddings helps in retrieving and understanding the context of the data during searches.
+
+# PromptTemplate for generating responses in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
+
+1. PromptTemplate 
+
+* Initializes a prompt template using the provided prompt_template string. It specifies the placeholders for context and question, which will be filled in when generating responses.
+
+2. input_variables=['context','question']
+
+* Defines the variables that the template will use, ensuring that context and question are provided as inputs.
+
+3. chain_type_kwargs={"prompt":PROMPT} 
+
+* Creates a dictionary to pass the configured prompt template (PROMPT) into a chain or model, guiding how responses should be generated based on the provided context and question.
