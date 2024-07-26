@@ -461,3 +461,35 @@ Uses exact or partial keyword matching without semantic understanding, which may
 3. chain_type_kwargs={"prompt":PROMPT} 
 
 * Creates a dictionary to pass the configured prompt template (PROMPT) into a chain or model, guiding how responses should be generated based on the provided context and question.
+
+# Initializing a Language Model with CTransformers in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
+
+1. model 
+
+* Specifies the path to the pre-trained model file (llama-2-7b-chat.ggmlv3.q4_0.bin), which is based on the LLaMA architecture.
+
+2. model_type 
+
+* Indicates the type of model, in this case, "llama".
+
+3. config 
+
+* Contains configuration parameters for generating text:
+
+4. max_new_tokens
+
+* Maximum number of tokens to generate (256).
+
+5. temperature 
+
+* Controls the randomness of responses (0.1 for more deterministic outputs).
+
+6. top_p 
+
+* Probability threshold for nucleus sampling (0.9).
+
+7. top_k 
+
+* Limits the sampling to the top k tokens (40).
+
+This setup is used to configure and use a specific language model for generating text or responses based on the given parameters.
