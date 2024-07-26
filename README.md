@@ -368,9 +368,15 @@ The chatbot can store and retrieve embeddings of past conversation snippets to m
 
 For chatbots designed to answer FAQs, user queries can be converted into embeddings and matched against a pre-indexed knowledge base in Pinecone to find the most relevant answers.
 
-# All Functions in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb)
+# All Functions in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
 
-1. load_pdf Function
+1. def load_pdf(data)
 
 * The load_pdf function is designed to load PDF files from a specified directory.
+
+2. def text_split(extracted_data)  
+
+* The text_split function splits a list of documents into smaller chunks. It uses RecursiveCharacterTextSplitter to divide the text into chunks of 500 characters with an overlap of 20 characters between chunks, and then returns these chunks.
+
+3. 
 
