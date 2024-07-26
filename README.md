@@ -378,5 +378,9 @@ For chatbots designed to answer FAQs, user queries can be converted into embeddi
 
 * The text_split function splits a list of documents into smaller chunks. It uses RecursiveCharacterTextSplitter to divide the text into chunks of 500 characters with an overlap of 20 characters between chunks, and then returns these chunks.
 
-3. 
+3. def download_hugging_face_embeddings()
+
+* The download_hugging_face_embeddings function initializes and returns a Hugging Face embeddings object using the sentence-transformers/all-MiniLM-L6-v2 model.
+
+4. 
 
