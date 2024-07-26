@@ -300,7 +300,9 @@ This tool splits long texts into smaller, manageable chunks based on character c
 
 * The ContextualCompressionRetriever from the langchain.retrievers module is a specialized class designed to enhance the efficiency and relevance of information retrieval in natural language processing tasks. This retriever compresses the context of documents or text data to prioritize the most relevant information, which is particularly useful for large datasets where processing and retrieving information can be resource-intensive.
 
+9. LLMChainExtractor
 
+* The LLMChainExtractor from the langchain.retrievers document_compressors module is a specialized component designed to extract and compress relevant information from documents using a large language model (LLM). This extractor is particularly useful in contexts where documents contain a lot of information, but only specific parts are relevant to the query.
 
 # Creating Pinecone Index in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb)
 
