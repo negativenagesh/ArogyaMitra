@@ -292,6 +292,10 @@ This tool splits long texts into smaller, manageable chunks based on character c
 
 * The PineconeHybridSearchRetriever is a class in the LangChain library designed to perform hybrid search retrieval using Pinecone's vector database. This class combines both semantic (vector-based) and keyword (term-based) search techniques to retrieve the most relevant documents for a given query.
 
+7. LangChainPinecone
+
+* The Pinecone class from langchain.vectorstores, referred to as LangChainPinecone, is a wrapper around Pinecone's vector database service, designed to integrate seamlessly with the LangChain library. This class provides functionalities for storing, indexing, and searching vector embeddings, which are crucial for various natural language processing tasks such as semantic search, document retrieval, and more.
+
 # Creating Pinecone Index in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb)
 
 Creating a Pinecone index is essential for managing vector embeddings efficiently. In the context of chatbots, especially those requiring sophisticated natural language understanding and response generation, Pinecone provides the following benefits:
