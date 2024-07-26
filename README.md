@@ -531,7 +531,7 @@ This setup enables efficient retrieval of a specified number of top documents fr
 
 * Creates a compression component using LLMChainExtractor initialized with the llm model. This component extracts and compresses relevant information from documents.
 
-2. etriever 
+2. retriever 
 
 * Initializes a ContextualCompressionRetriever with:
 
@@ -544,3 +544,32 @@ This setup enables efficient retrieval of a specified number of top documents fr
 * The base_retriever for retrieving documents from Pinecone.
 
 This setup enables efficient retrieval of compressed and contextually relevant information from documents, improving search accuracy and relevance.
+
+# Setting Up the Question-Answering System in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb) briefly
+
+1. qa 
+
+* Creates a RetrievalQA object for answering questions.
+
+2. RetrievalQA.from_chain_type 
+
+* Initializes the QA system using:
+
+3. llm
+
+* The language model (llm) for generating answers.
+
+4. chain_type="stuff"
+
+* Specifies the chain type used for processing queries and retrieving answers.
+
+5. retriever
+
+* The retriever object for fetching relevant documents.
+
+6. chain_type_kwargs
+
+* Additional configuration parameters for the prompt template.
+
+This setup allows the QA system to answer questions by retrieving relevant information from documents and generating responses using the specified language model and retrieval strategy.
+
