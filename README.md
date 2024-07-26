@@ -296,6 +296,12 @@ This tool splits long texts into smaller, manageable chunks based on character c
 
 * The Pinecone class from langchain.vectorstores, referred to as LangChainPinecone, is a wrapper around Pinecone's vector database service, designed to integrate seamlessly with the LangChain library. This class provides functionalities for storing, indexing, and searching vector embeddings, which are crucial for various natural language processing tasks such as semantic search, document retrieval, and more.
 
+8. ContextualCompressionRetriever
+
+* The ContextualCompressionRetriever from the langchain.retrievers module is a specialized class designed to enhance the efficiency and relevance of information retrieval in natural language processing tasks. This retriever compresses the context of documents or text data to prioritize the most relevant information, which is particularly useful for large datasets where processing and retrieving information can be resource-intensive.
+
+
+
 # Creating Pinecone Index in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb)
 
 Creating a Pinecone index is essential for managing vector embeddings efficiently. In the context of chatbots, especially those requiring sophisticated natural language understanding and response generation, Pinecone provides the following benefits:
