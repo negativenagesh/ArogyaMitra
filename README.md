@@ -420,3 +420,16 @@ These are earlier methods for generating word embeddings that capture semantic m
 
 Uses exact or partial keyword matching without semantic understanding, which may be less effective for nuanced queries.
 
+## Here I used vector embedding like
+
+1. Generate Embeddings  
+
+It converts text chunks into numerical embeddings using the previously initialized Hugging Face model.
+
+2. Assign IDs and Store Embeddings 
+
+It assigns a unique ID to each embedding and stores them in a dictionary.
+
+3. Upsert to Pinecone 
+
+It uploads these embeddings, along with associated metadata, to a Pinecone index.
