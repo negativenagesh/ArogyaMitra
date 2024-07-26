@@ -268,7 +268,7 @@ These embeddings convert text into dense vector representations, capturing the s
 
 2. Pinecone:
 
-Pinecone is a vector database optimized for storing and querying high-dimensional vectors. It allows for fast similarity searches, making it ideal for applications where you need to find the most relevant documents or data points based on their embeddings.
+* Pinecone is a vector database optimized for storing and querying high-dimensional vectors. It allows for fast similarity searches, making it ideal for applications where you need to find the most relevant documents or data points based on their embeddings.
 
 3. PyMuPDFLoader and DirectoryLoader
 
@@ -286,9 +286,11 @@ This tool splits long texts into smaller, manageable chunks based on character c
 
 5. CTransformers
 
-* CTransformers: 
+* This module is part of the LangChain library and provides an interface to use transformer models more efficiently. It can be particularly useful for deploying transformer models in a production environment where performance and resource optimization are critical.
 
-This module is part of the LangChain library and provides an interface to use transformer models more efficiently. It can be particularly useful for deploying transformer models in a production environment where performance and resource optimization are critical.
+6. PineconeHybridSearchRetriever
+
+* The PineconeHybridSearchRetriever is a class in the LangChain library designed to perform hybrid search retrieval using Pinecone's vector database. This class combines both semantic (vector-based) and keyword (term-based) search techniques to retrieve the most relevant documents for a given query.
 
 # Creating Pinecone Index in [trials.ipynb](https://github.com/negativenagesh/Medical_Chatbot-Llama2/blob/main/trials.ipynb)
 
@@ -349,3 +351,5 @@ The chatbot can store and retrieve embeddings of past conversation snippets to m
 * FAQ Matching: 
 
 For chatbots designed to answer FAQs, user queries can be converted into embeddings and matched against a pre-indexed knowledge base in Pinecone to find the most relevant answers.
+
+#
