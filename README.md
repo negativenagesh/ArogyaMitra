@@ -19,6 +19,14 @@ conda activate mcbot
 pip install -r requirements.txt
 ```
 
+### Create a '.env' file in the root directory and add your Pinecone credentials as follows:
+
+```ini
+PINECONE_API_KEY= "xxxxxxxxxxxxxxxxxxxxxxxxxx"
+PINECONE_API_ENV='xxxxxxxxx'
+```
+
+
 ## What is ctransformers?
 
 https://pypi.org/project/ctransformers/0.1.0/
