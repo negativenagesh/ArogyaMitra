@@ -25,7 +25,13 @@ pip install -r requirements.txt
 PINECONE_API_KEY= "xxxxxxxxxxxxxxxxxxxxxxxxxx"
 PINECONE_API_ENV='xxxxxxxxx'
 ```
+## Download the Llama2 model:
 
+llama-2-7b-chat.ggmlv3.q4_0.bin
+
+## From following link:
+
+https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
 
 ## What is ctransformers?
 
