@@ -18,20 +18,22 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .chat-container {
+        .chat-input-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             width: 90%;
             max-width: 600px;
             background-color: #333; /* Same color as webpage background */
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
             padding: 10px;
             box-sizing: border-box;
+            margin-bottom: 20px;
         }
         .chat-output-container, .chat-input-container {
-            display: none;
             width: 90%;
             max-width: 600px;
             background-color: #333; /* Same color as webpage background */
@@ -45,10 +47,12 @@
             margin-bottom: 20px;
         }
         .chat-output-container {
+            display: none; /* Initially hidden */
             align-items: flex-start;
             margin-right: auto;
         }
         .chat-input-container {
+            display: flex;
             align-items: flex-end;
             margin-left: auto;
         }
@@ -57,6 +61,7 @@
             width: 100%;
             overflow-y: auto;
             max-height: 70vh;
+            margin-bottom: 10px;
         }
         .chat-input {
             display: flex;
@@ -74,9 +79,10 @@
         .chat-input button {
             padding: 10px;
             border: none;
-            background-color: #007bff;
+            background-color: #333; /* Same color as webpage background */
             color: #fff;
             cursor: pointer;
+            border-radius: 5px; /* Optional: Rounded corners for the button */
         }
         .chat-message {
             margin: 10px 0;
@@ -111,17 +117,10 @@
     <div class="chat-output-container" id="chat-output-container">
         <div class="chat-output" id="chat-output"></div>
     </div>
-    <div class="chat-input-container" id="chat-input-container">
-        <div class="chat-input">
-            <input type="text" id="user-input-2" placeholder="Type a message...">
-            <button onclick="sendMessage()">Send</button>
-        </div>
-    </div>
     <script>
         const chatOutput = document.getElementById('chat-output');
         const initialInputContainer = document.getElementById('initial-input-container');
         const chatOutputContainer = document.getElementById('chat-output-container');
-        const chatInputContainer = document.getElementById('chat-input-container');
 
         function addMessage(content, sender) {
             const messageElement = document.createElement('div');
@@ -132,7 +131,7 @@
             messageElement.appendChild(messageContent);
             
             if (sender === 'user') {
-                chatInputContainer.insertBefore(messageElement, chatInputContainer.firstChild);
+                chatOutputContainer.insertBefore(messageElement, chatOutputContainer.firstChild);
             } else {
                 chatOutput.appendChild(messageElement);
                 chatOutput.scrollTop = chatOutput.scrollHeight;
@@ -141,22 +140,16 @@
 
         function sendMessage() {
             const userInput = document.getElementById('user-input');
-            const userInput2 = document.getElementById('user-input-2');
-            const message = userInput ? userInput.value.trim() : userInput2.value.trim();
+            const message = userInput.value.trim();
             if (message) {
                 addMessage(message, 'user');
-                if (userInput) {
-                    userInput.value = '';
-                    initialInputContainer.style.display = 'none';
-                    chatOutputContainer.style.display = 'flex';
-                    chatInputContainer.style.display = 'flex';
-                } else {
-                    userInput2.value = '';
-                }
-                // Here, you would send the message to your backend and get the response
-                // For demonstration, let's just echo the message
-                setTimeout(() => addMessage('This is a response from the chatbot.', 'bot'), 1000);
+                userInput.value = '';
+                initialInputContainer.style.display = 'none';
+                chatOutputContainer.style.display = 'flex';
             }
+            // Here, you would send the message to your backend and get the response
+            // For demonstration, let's just echo the message
+            setTimeout(() => addMessage('This is a response from the chatbot.', 'bot'), 1000);
         }
 
         // Dummy initial bot message
