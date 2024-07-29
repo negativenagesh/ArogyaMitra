@@ -9,11 +9,14 @@
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #f0f0f0;
+            background-color: #333; /* Dark grey background */
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
         .chat-container {
             width: 90%;
@@ -24,20 +27,40 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-        }
-        .chat-header {
-            background-color: #007bff;
-            color: #fff;
             padding: 10px;
-            text-align: center;
+            box-sizing: border-box;
         }
-        .chat-messages {
+        .chat-output-container, .chat-input-container {
+            display: none;
+            width: 90%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+        .chat-output-container {
+            align-items: flex-start;
+            margin-right: auto;
+        }
+        .chat-input-container {
+            align-items: flex-end;
+            margin-left: auto;
+        }
+        .chat-output {
             flex: 1;
-            padding: 10px;
+            width: 100%;
             overflow-y: auto;
+            max-height: 70vh;
         }
         .chat-input {
             display: flex;
+            width: 100%;
             border-top: 1px solid #ddd;
         }
         .chat-input input {
@@ -77,18 +100,26 @@
     </style>
 </head>
 <body>
-    <div class="chat-container">
-        <div class="chat-header">
-            Medical Chatbot
-        </div>
-        <div class="chat-messages" id="chat-messages"></div>
+    <div class="chat-input-container" id="initial-input-container">
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Type a message...">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
+    <div class="chat-output-container" id="chat-output-container">
+        <div class="chat-output" id="chat-output"></div>
+    </div>
+    <div class="chat-input-container" id="chat-input-container">
+        <div class="chat-input">
+            <input type="text" id="user-input-2" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
     <script>
-        const chatMessages = document.getElementById('chat-messages');
+        const chatOutput = document.getElementById('chat-output');
+        const initialInputContainer = document.getElementById('initial-input-container');
+        const chatOutputContainer = document.getElementById('chat-output-container');
+        const chatInputContainer = document.getElementById('chat-input-container');
 
         function addMessage(content, sender) {
             const messageElement = document.createElement('div');
@@ -97,16 +128,29 @@
             messageContent.className = 'message-content';
             messageContent.textContent = content;
             messageElement.appendChild(messageContent);
-            chatMessages.appendChild(messageElement);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            if (sender === 'user') {
+                chatInputContainer.insertBefore(messageElement, chatInputContainer.firstChild);
+            } else {
+                chatOutput.appendChild(messageElement);
+                chatOutput.scrollTop = chatOutput.scrollHeight;
+            }
         }
 
         function sendMessage() {
             const userInput = document.getElementById('user-input');
-            const message = userInput.value.trim();
+            const userInput2 = document.getElementById('user-input-2');
+            const message = userInput ? userInput.value.trim() : userInput2.value.trim();
             if (message) {
                 addMessage(message, 'user');
-                userInput.value = '';
+                if (userInput) {
+                    userInput.value = '';
+                    initialInputContainer.style.display = 'none';
+                    chatOutputContainer.style.display = 'flex';
+                    chatInputContainer.style.display = 'flex';
+                } else {
+                    userInput2.value = '';
+                }
                 // Here, you would send the message to your backend and get the response
                 // For demonstration, let's just echo the message
                 setTimeout(() => addMessage('This is a response from the chatbot.', 'bot'), 1000);
