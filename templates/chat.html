@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical Chatbot</title>
+    <title>ArogyaMitra</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        @font-face {
+            font-family: 'Valacia Vintage';
+            src: url('path-to-your-font/ValaciaVintage.ttf') format('truetype'); /* Adjust path and format as needed */
+        }
+        
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -18,8 +23,29 @@
             box-sizing: border-box;
             overflow: hidden;
         }
-        .message-container {
+        .welcome-container {
             display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            text-align: center;
+            color: #fff;
+        }
+        .welcome-title {
+            font-size: 3em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-family: 'Arial Black', sans-serif; /* Example of a catchy font */
+        }
+        .welcome-slogan {
+            font-size: 1.5em;
+            font-weight: normal;
+            margin-bottom: 50px;
+            font-family: 'Valacia Vintage', serif; /* Apply the custom font here */
+        }
+        .message-container {
+            display: none; /* Initially hidden */
             flex-direction: column;
             align-items: flex-start; /* Align messages to the left */
             width: 100%;
@@ -58,6 +84,7 @@
             margin-right: auto; /* Move to the left */
         }
         .chat-input-container {
+            display: none; /* Initially hidden */
             position: fixed;
             bottom: 50px;
             width: 90%;
@@ -109,6 +136,10 @@
     </style>
 </head>
 <body>
+    <div class="welcome-container" id="welcome-container">
+        <div class="welcome-title">ArogyaMitra</div>
+        <div class="welcome-slogan">"Wellness Crafted for You"</div>
+    </div>
     <div class="message-container" id="message-container"></div>
     <div class="chat-input-container" id="chat-input-container">
         <div class="chat-input">
@@ -117,10 +148,16 @@
         </div>
     </div>
     <div class="disclaimer">
-        ArogyaMitra won't answer all your questions.
+        ArogyaMitra won't answer all your questions, still in R&D
     </div>
     <script>
         let waitingForResponse = false;
+
+        function showChatContainer() {
+            document.getElementById('welcome-container').style.display = 'none';
+            document.getElementById('message-container').style.display = 'flex';
+            document.getElementById('chat-input-container').style.display = 'flex';
+        }
 
         function addMessage(content, sender) {
             const messageElement = document.createElement('div');
@@ -163,8 +200,13 @@
             document.getElementById('send-button').disabled = disable;
         }
 
+        // Show chat container after the first interaction
+        document.getElementById('user-input').addEventListener('focus', showChatContainer);
+        document.getElementById('user-input').addEventListener('input', showChatContainer);
+
         // Initial dummy bot message
-        addMessage('Hello! How can I assist you today?', 'bot');
+        // Add this line if you want a dummy message to appear initially in the chat
+        // addMessage('Hello! How can I assist you today?', 'bot');
     </script>
 </body>
 </html>
