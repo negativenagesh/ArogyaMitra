@@ -11,6 +11,11 @@
             src: url('path-to-your-font/ValaciaVintage.ttf') format('truetype'); /* Adjust path and format as needed */
         }
         
+        @font-face {
+            font-family: 'Roboto'; /* Example of a different font */
+            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Include font from Google Fonts */
+        }
+
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -23,6 +28,7 @@
             box-sizing: border-box;
             overflow: hidden;
         }
+
         .welcome-container {
             display: flex;
             flex-direction: column;
@@ -33,18 +39,21 @@
             color: #fff;
             position: relative; /* Added for positioning */
         }
+
         .welcome-title {
             font-size: 6em; /* Increased size */
             font-weight: bold;
             margin-bottom: 20px;
             font-family: 'Arial Black', sans-serif; /* Example of a catchy font */
         }
+
         .welcome-slogan {
             font-size: 1.5em;
             font-weight: normal;
             margin-bottom: 50px;
             font-family: 'Valacia Vintage', serif; /* Apply the custom font here */
         }
+
         .message-container {
             display: none; /* Initially hidden */
             flex-direction: column;
@@ -56,6 +65,7 @@
             padding: 0; /* Remove padding to allow scrollbar to be at the edge */
             margin-top: 60px; /* Add margin-top to prevent overlap with the logo */
         }
+
         .chat-message {
             width: auto;
             max-width: 80%;
@@ -70,6 +80,7 @@
             word-wrap: break-word; /* Ensure long words break and wrap within the container */
             overflow: hidden; /* Prevent overflow */
         }
+
         .chat-message.user {
             background-color: #007bff;
             color: #fff;
@@ -77,6 +88,7 @@
             align-self: flex-end; /* Align to right */
             margin-left: auto; /* Move to the right */
         }
+
         .chat-message.bot {
             background-color: #e0e0e0;
             color: #000;
@@ -84,6 +96,7 @@
             align-self: flex-start; /* Align to left */
             margin-right: auto; /* Move to the left */
         }
+
         .chat-input-container {
             display: none; /* Initially hidden */
             position: fixed;
@@ -100,11 +113,13 @@
             justify-content: center;
             z-index: 10; /* Ensure it is on top of messages */
         }
+
         .chat-input {
             display: flex;
             width: 100%;
             border-top: 1px solid #ddd;
         }
+
         .chat-input input {
             flex: 1;
             padding: 10px;
@@ -113,6 +128,7 @@
             background-color: #444; /* Slightly lighter dark grey */
             color: #fff; /* White text */
         }
+
         .chat-input button {
             padding: 10px;
             border: none;
@@ -121,10 +137,12 @@
             cursor: pointer;
             border-radius: 5px; /* Optional: Rounded corners for the button */
         }
+
         .chat-input button:disabled {
             cursor: not-allowed;
             opacity: 0.5;
         }
+
         .disclaimer {
             position: fixed;
             bottom: 10px;
@@ -134,14 +152,19 @@
             font-size: 14px;
             z-index: 5; /* Below the input container */
         }
+
         .logo {
             position: fixed;
             top: 10px;
             left: 10px;
-            font-size: 3em; /* Adjust size as needed */
+            font-size: 2em; /* Adjust size as needed */
             color: #fff;
             display: none; /* Initially hidden */
             z-index: 5; /* Ensure it is above messages */
+            font-family: 'Roboto', sans-serif; /* New font */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds a shadow effect */
+            letter-spacing: 1px; /* Adds spacing between letters */
+            font-weight: bold; /* Makes text bolder */
         }
     </style>
 </head>
