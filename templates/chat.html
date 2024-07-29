@@ -20,8 +20,8 @@
             overflow: hidden;
         }
         .chat-message {
-            width: 90%;
-            max-width: 600px;
+            width: auto;
+            max-width: 90%;
             background-color: #444; /* Slightly lighter dark grey */
             border-radius: 10px;
             padding: 10px;
@@ -29,23 +29,23 @@
             color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             position: absolute;
-            max-height: 150px;
-            overflow: hidden;
+            transition: all 0.5s ease;
             box-sizing: border-box;
         }
         .chat-message.user {
-            left: 10%;
-            top: 20px;
             background-color: #007bff;
             color: #fff;
             text-align: right;
+            left: 10%;
+            bottom: 20px;
         }
         .chat-message.bot {
-            left: 10%;
-            top: 80px;
             background-color: #e0e0e0;
             color: #000;
             text-align: left;
+            left: 10%;
+            top: 0;
+            display: none; /* Hidden initially */
         }
         .chat-input-container {
             position: fixed;
@@ -92,34 +92,40 @@
         </div>
     </div>
     <script>
-        const chatOutput = document.getElementById('chat-output');
-        
+        let messageIndex = 0;
+
         function addMessage(content, sender) {
+            // Create and style the message element
             const messageElement = document.createElement('div');
             messageElement.className = `chat-message ${sender}`;
             messageElement.textContent = content;
             document.body.appendChild(messageElement);
 
-            // Adjust the position for each message
-            const messages = document.querySelectorAll('.chat-message');
-            messages.forEach((msg, index) => {
-                msg.style.top = `${20 + (index * 60)}px`; // Adjust spacing between messages
-            });
+            // Position message at the top and adjust size
+            messageElement.style.top = `calc(20px + ${messageIndex * 60}px)`; // Adjust spacing
+            messageElement.style.left = sender === 'user' ? '10%' : '10%'; // Align messages
+            messageElement.style.display = 'block';
+            
+            // Increase message index
+            messageIndex++;
         }
 
         function sendMessage() {
             const userInput = document.getElementById('user-input');
             const message = userInput.value.trim();
             if (message) {
+                // Create and display user message
                 addMessage(message, 'user');
                 userInput.value = '';
 
                 // Add bot response after a short delay
-                setTimeout(() => addMessage('This is a response from the chatbot.', 'bot'), 1000);
+                setTimeout(() => {
+                    addMessage('This is a response from the chatbot.', 'bot');
+                }, 1000);
             }
         }
 
-        // Dummy initial bot message
+        // Initial dummy bot message
         addMessage('Hello! How can I assist you today?', 'bot');
     </script>
 </body>
