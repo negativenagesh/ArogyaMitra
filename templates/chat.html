@@ -18,7 +18,7 @@
             box-sizing: border-box;
             overflow: hidden;
         }
-        .message-container {
+       .message-container {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -26,11 +26,21 @@
             max-width: 600px;
             height: calc(100vh - 70px); /* Adjust height to account for input container */
             margin-bottom: 70px; /* Ensure space for input container */
-            overflow-y: scroll;
+            overflow-y: auto; /* Change from 'croll' to 'auto' */
+            padding-right: 0; /* Remove padding to allow scrollbar to stick to right edge */
             box-sizing: border-box;
-            padding-right: 10px; /* Ensure scrollbar does not overlap text */
         }
-        .chat-message {
+       .message-container::-webkit-scrollbar {
+            width: 10px; /* Set scrollbar width */
+        }
+       .message-container::-webkit-scrollbar-track {
+            background-color: #333; /* Dark grey background */
+        }
+       .message-container::-webkit-scrollbar-thumb {
+            background-color: #444; /* Slightly lighter dark grey */
+            border-radius: 10px;
+        }
+       .chat-message {
             width: auto;
             max-width: 80%;
             background-color: #444; /* Slightly lighter dark grey */
@@ -42,21 +52,21 @@
             position: relative;
             box-sizing: border-box;
         }
-        .chat-message.user {
+       .chat-message.user {
             background-color: #007bff;
             color: #fff;
             text-align: right;
             align-self: flex-end; /* Align to right */
             margin-left: auto; /* Move to the right */
         }
-        .chat-message.bot {
+       .chat-message.bot {
             background-color: #e0e0e0;
             color: #000;
             text-align: left;
             align-self: flex-start; /* Align to left */
             margin-right: auto; /* Move to the left */
         }
-        .chat-input-container {
+       .chat-input-container {
             position: fixed;
             bottom: 20px;
             width: 90%;
@@ -71,12 +81,12 @@
             justify-content: center;
             z-index: 10; /* Ensure it is on top of messages */
         }
-        .chat-input {
+       .chat-input {
             display: flex;
             width: 100%;
             border-top: 1px solid #ddd;
         }
-        .chat-input input {
+       .chat-input input {
             flex: 1;
             padding: 10px;
             border: none;
@@ -84,7 +94,7 @@
             background-color: #444; /* Slightly lighter dark grey */
             color: #fff; /* White text */
         }
-        .chat-input button {
+       .chat-input button {
             padding: 10px;
             border: none;
             background-color: #333; /* Same color as webpage background */
@@ -92,7 +102,7 @@
             cursor: pointer;
             border-radius: 5px; /* Optional: Rounded corners for the button */
         }
-        .chat-input button:disabled {
+       .chat-input button:disabled {
             cursor: not-allowed;
             opacity: 0.5;
         }
@@ -113,45 +123,4 @@
             const messageElement = document.createElement('div');
             messageElement.className = `chat-message ${sender}`;
             messageElement.textContent = content;
-            document.getElementById('message-container').appendChild(messageElement);
-            // Ensure message is visible by scrolling into view if needed
-            messageElement.scrollIntoView({ behavior: 'smooth' });
         }
-
-        function sendMessage() {
-            if (waitingForResponse) return; // Prevent sending a new message while waiting for response
-
-            const userInput = document.getElementById('user-input');
-            const message = userInput.value.trim();
-            if (message) {
-                addMessage(message, 'user');
-                userInput.value = '';
-                disableInput(true);
-
-                // Simulate bot response
-                waitingForResponse = true;
-                setTimeout(() => {
-                    addMessage('This is a response from the chatbot.', 'bot');
-                    waitingForResponse = false;
-                    disableInput(false);
-                }, 2000); // Adjust timeout as needed
-            }
-        }
-
-        function handleKeyDown(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault(); // Prevent the default Enter key behavior (e.g., newline in textarea)
-                sendMessage();
-            }
-        }
-
-        function disableInput(disable) {
-            document.getElementById('user-input').disabled = disable;
-            document.getElementById('send-button').disabled = disable;
-        }
-
-        // Initial dummy bot message
-        addMessage('Hello! How can I assist you today?', 'bot');
-    </script>
-</body>
-</html>
