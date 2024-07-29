@@ -10,13 +10,14 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             height: 100vh;
             background-color: #333; /* Dark grey background */
             margin: 0;
             padding: 20px;
             box-sizing: border-box;
+            overflow: hidden;
         }
         .chat-output-container, .chat-input-container {
             width: 90%;
@@ -32,16 +33,25 @@
             margin-bottom: 20px;
         }
         .chat-output-container {
-            display: none; /* Initially hidden */
-            align-items: flex-start;
-            margin-right: auto;
-            margin-top: 20px;
-        }
-        .chat-input-container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #333; /* Same color as webpage background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            padding: 10px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            position: absolute;
+            top: 60px;
+            left: 10px;
+            right: 10px;
+            display: none; /* Initially hidden */
+        }
+        .chat-input-container {
             position: fixed;
             bottom: 20px;
             width: 90%;
@@ -58,7 +68,6 @@
             width: 100%;
             overflow-y: auto;
             max-height: 70vh;
-            margin-bottom: 10px;
         }
         .chat-input {
             display: flex;
@@ -86,9 +95,11 @@
         }
         .chat-message.bot {
             text-align: left;
+            margin-left: 10px;
         }
         .chat-message.user {
             text-align: right;
+            margin-right: 10px;
         }
         .chat-message .message-content {
             display: inline-block;
@@ -129,6 +140,7 @@
             
             if (sender === 'user') {
                 chatOutputContainer.insertBefore(messageElement, chatOutputContainer.firstChild);
+                chatOutputContainer.style.display = 'flex';
             } else {
                 chatOutput.appendChild(messageElement);
                 chatOutput.scrollTop = chatOutput.scrollHeight;
@@ -141,10 +153,12 @@
             if (message) {
                 addMessage(message, 'user');
                 userInput.value = '';
+                // Ensure the chat output container is visible and correctly positioned
                 chatOutputContainer.style.display = 'flex';
-                initialInputContainer.style.position = 'absolute';
-                initialInputContainer.style.bottom = '20px';
-                initialInputContainer.style.right = '20px';
+                chatOutputContainer.style.top = `${initialInputContainer.getBoundingClientRect().top - chatOutputContainer.getBoundingClientRect().height - 10}px`;
+                chatOutputContainer.style.left = '10px';
+                chatOutputContainer.style.right = '10px';
+                initialInputContainer.style.bottom = `${window.innerHeight - initialInputContainer.getBoundingClientRect().bottom}px`;
             }
             // Here, you would send the message to your backend and get the response
             // For demonstration, let's just echo the message
