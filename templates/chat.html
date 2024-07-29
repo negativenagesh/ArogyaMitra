@@ -8,12 +8,12 @@
     <style>
         @font-face {
             font-family: 'Valacia Vintage';
-            src: url('path-to-your-font/ValaciaVintage.ttf') format('truetype'); /* Adjust path and format as needed */
+            src: url('path-to-your-font/ValaciaVintage.ttf') format('truetype');
         }
-        
+
         @font-face {
-            font-family: 'Roboto'; /* Example of a different font */
-            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); /* Include font from Google Fonts */
+            font-family: 'Roboto';
+            src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
         }
 
         body {
@@ -22,7 +22,7 @@
             flex-direction: column;
             align-items: center;
             height: 100vh;
-            background-color: #333; /* Dark grey background */
+            background-color: #333;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -37,39 +37,40 @@
             height: 100%;
             text-align: center;
             color: #fff;
-            position: relative; /* Added for positioning */
         }
 
         .welcome-title {
-            font-size: 6em; /* Increased size */
+            font-size: 6em;
             font-weight: bold;
             margin-bottom: 20px;
-            font-family: 'Arial Black', sans-serif; /* Example of a catchy font */
+            font-family: 'Roboto', sans-serif;
         }
 
         .welcome-slogan {
             font-size: 1.5em;
             font-weight: normal;
             margin-bottom: 50px;
-            font-family: 'Valacia Vintage', serif; /* Apply the custom font here */
+            font-family: 'Valacia Vintage', serif;
         }
 
         .message-container {
-            display: none; /* Initially hidden */
+            display: none;
             flex-direction: column;
-            align-items: flex-start; /* Align messages to the left */
+            align-items: flex-start;
             width: 100%;
-            height: calc(100vh - 120px); /* Adjust height to account for input container and disclaimer */
+            height: calc(100vh - 120px);
+            margin-bottom: 70px;
             overflow-y: scroll;
             box-sizing: border-box;
-            padding: 0; /* Remove padding to allow scrollbar to be at the edge */
-            margin-top: 60px; /* Add margin-top to prevent overlap with the logo */
+            padding: 0;
+            position: relative;
+            margin-top: 60px;
         }
 
         .chat-message {
             width: auto;
             max-width: 80%;
-            background-color: #444; /* Slightly lighter dark grey */
+            background-color: #444;
             border-radius: 10px;
             padding: 10px;
             margin: 10px 0;
@@ -77,41 +78,41 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
             position: relative;
-            word-wrap: break-word; /* Ensure long words break and wrap within the container */
-            overflow: hidden; /* Prevent overflow */
+            word-wrap: break-word;
+            overflow: hidden;
         }
 
         .chat-message.user {
             background-color: #007bff;
             color: #fff;
             text-align: right;
-            align-self: flex-end; /* Align to right */
-            margin-left: auto; /* Move to the right */
+            align-self: flex-end;
+            margin-left: auto;
         }
 
         .chat-message.bot {
             background-color: #e0e0e0;
             color: #000;
             text-align: left;
-            align-self: flex-start; /* Align to left */
-            margin-right: auto; /* Move to the left */
+            align-self: flex-start;
+            margin-right: auto;
         }
 
         .chat-input-container {
-            display: none; /* Initially hidden */
+            display: none;
             position: fixed;
             bottom: 50px;
-            width: 90%;
-            max-width: 600px;
-            background-color: #333; /* Same color as webpage background */
+            width: 95%;
+            max-width: 800px;
+            background-color: #333;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            padding: 10px;
+            padding: 15px;
             box-sizing: border-box;
             display: flex;
             justify-content: center;
-            z-index: 10; /* Ensure it is on top of messages */
+            z-index: 10;
         }
 
         .chat-input {
@@ -122,20 +123,23 @@
 
         .chat-input input {
             flex: 1;
-            padding: 10px;
+            padding: 15px;
+            font-size: 18px;
             border: none;
             outline: none;
-            background-color: #444; /* Slightly lighter dark grey */
-            color: #fff; /* White text */
+            background-color: #444;
+            color: #fff;
         }
 
         .chat-input button {
-            padding: 10px;
+            padding: 15px;
             border: none;
-            background-color: #333; /* Same color as webpage background */
+            background-color: #333;
             color: #fff;
             cursor: pointer;
-            border-radius: 5px; /* Optional: Rounded corners for the button */
+            border-radius: 5px;
+            font-size: 24px;
+            font-weight: bold;
         }
 
         .chat-input button:disabled {
@@ -150,21 +154,27 @@
             text-align: center;
             color: #fff;
             font-size: 14px;
-            z-index: 5; /* Below the input container */
+            z-index: 5;
         }
 
         .logo {
             position: fixed;
             top: 10px;
             left: 10px;
-            font-size: 1.5em; /* Adjust size as needed */
+            font-family: 'Roboto', sans-serif;
+            font-size: 2em;
             color: #fff;
-            display: none; /* Initially hidden */
-            z-index: 5; /* Ensure it is above messages */
-            font-family: 'Roboto', sans-serif; /* New font */
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Adds a shadow effect */
-            letter-spacing: 1px; /* Adds spacing between letters */
-            font-weight: bold; /* Makes text bolder */
+            z-index: 5;
+        }
+
+        .welcome-slogan-top {
+            position: fixed;
+            top: 50px;
+            left: 10px;
+            font-family: 'Valacia Vintage', serif;
+            font-size: 1.2em;
+            color: #fff;
+            z-index: 5;
         }
     </style>
 </head>
@@ -173,20 +183,23 @@
         <div class="welcome-title">ArogyaMitra</div>
         <div class="welcome-slogan">"Wellness Crafted for You"</div>
     </div>
+
     <div class="message-container" id="message-container"></div>
+
     <div class="chat-input-container" id="chat-input-container">
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Type a message..." onkeydown="handleKeyDown(event)">
-            <button id="send-button" onclick="sendMessage()">Send</button>
+            <button id="send-button" onclick="sendMessage()"><i class="fas fa-arrow-up"></i></button>
         </div>
     </div>
+
     <div class="disclaimer">
         ArogyaMitra won't answer all your questions, still in R&D
     </div>
-    <div class="logo" id="logo">
-        <div>ArogyaMitra</div>
-        <div>"Wellness Crafted for You"</div>
-    </div>
+
+    <div class="logo" id="logo">ArogyaMitra</div>
+    <div class="welcome-slogan-top" id="welcome-slogan-top">"Wellness Crafted for You"</div>
+
     <script>
         let waitingForResponse = false;
 
@@ -194,7 +207,8 @@
             document.getElementById('welcome-container').style.display = 'none';
             document.getElementById('message-container').style.display = 'flex';
             document.getElementById('chat-input-container').style.display = 'flex';
-            document.getElementById('logo').style.display = 'block'; // Show logo after user interaction
+            document.getElementById('logo').style.display = 'block';
+            document.getElementById('welcome-slogan-top').style.display = 'block';
         }
 
         function addMessage(content, sender) {
@@ -202,12 +216,11 @@
             messageElement.className = `chat-message ${sender}`;
             messageElement.textContent = content;
             document.getElementById('message-container').appendChild(messageElement);
-            // Ensure message is visible by scrolling into view if needed
             messageElement.scrollIntoView({ behavior: 'smooth' });
         }
 
         function sendMessage() {
-            if (waitingForResponse) return; // Prevent sending a new message while waiting for response
+            if (waitingForResponse) return;
 
             const userInput = document.getElementById('user-input');
             const message = userInput.value.trim();
@@ -216,19 +229,18 @@
                 userInput.value = '';
                 disableInput(true);
 
-                // Simulate bot response
                 waitingForResponse = true;
                 setTimeout(() => {
                     addMessage('This is a response from the chatbot.', 'bot');
                     waitingForResponse = false;
                     disableInput(false);
-                }, 2000); // Adjust timeout as needed
+                }, 2000);
             }
         }
 
         function handleKeyDown(event) {
             if (event.key === 'Enter') {
-                event.preventDefault(); // Prevent the default Enter key behavior (e.g., newline in textarea)
+                event.preventDefault();
                 sendMessage();
             }
         }
@@ -238,14 +250,30 @@
             document.getElementById('send-button').disabled = disable;
         }
 
-        // Show chat container after the first interaction
         document.getElementById('user-input').addEventListener('focus', showChatContainer);
         document.getElementById('user-input').addEventListener('input', showChatContainer);
 
-        // Initialize with welcome container visible
-        document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('logo').style.display = 'none';
+        document.getElementById('welcome-slogan-top').style.display = 'none';
+
+        function handleInitialDisplay() {
             document.getElementById('welcome-container').style.display = 'flex';
-            document.getElementById('logo').style.display = 'none'; // Ensure logo is hidden initially
+            document.getElementById('logo').style.display = 'none';
+            document.getElementById('welcome-slogan-top').style.display = 'none';
+        }
+
+        handleInitialDisplay();
+
+        document.getElementById('user-input').addEventListener('focus', () => {
+            document.getElementById('welcome-container').style.display = 'none';
+            document.getElementById('logo').style.display = 'block';
+            document.getElementById('welcome-slogan-top').style.display = 'block';
+        });
+        document.getElementById('user-input').addEventListener('input', () => {
+            if (document.getElementById('user-input').value.trim() !== '') {
+                document.getElementById('logo').style.display = 'block';
+                document.getElementById('welcome-slogan-top').style.display = 'block';
+            }
         });
     </script>
 </body>
