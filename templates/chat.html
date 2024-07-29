@@ -54,6 +54,8 @@
             overflow-y: scroll;
             box-sizing: border-box;
             padding: 0; /* Remove padding to allow scrollbar to be at the edge */
+            position: relative; /* Position relative to ensure messages are contained within */
+            margin-top: 60px; /* Add margin-top to prevent overlap with the logo */
         }
         .chat-message {
             width: auto;
@@ -133,9 +135,17 @@
             font-size: 14px;
             z-index: 5; /* Below the input container */
         }
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 150px; /* Adjust size as needed */
+            z-index: 5; /* Ensure it is above messages */
+        }
     </style>
 </head>
 <body>
+    <img src="path-to-your-logo/logo.png" alt="ArogyaMitra Logo" class="logo" id="logo">
     <div class="welcome-container" id="welcome-container">
         <div class="welcome-title">ArogyaMitra</div>
         <div class="welcome-slogan">"Wellness Crafted for You"</div>
@@ -157,6 +167,7 @@
             document.getElementById('welcome-container').style.display = 'none';
             document.getElementById('message-container').style.display = 'flex';
             document.getElementById('chat-input-container').style.display = 'flex';
+            document.getElementById('logo').style.display = 'none'; // Hide logo on interaction
         }
 
         function addMessage(content, sender) {
@@ -184,6 +195,7 @@
                     addMessage('This is a response from the chatbot.', 'bot');
                     waitingForResponse = false;
                     disableInput(false);
+                    restoreLogo(); // Restore logo after response
                 }, 2000); // Adjust timeout as needed
             }
         }
@@ -200,13 +212,19 @@
             document.getElementById('send-button').disabled = disable;
         }
 
+        function restoreLogo() {
+            document.getElementById('logo').style.display = 'block'; // Show logo again
+        }
+
         // Show chat container after the first interaction
         document.getElementById('user-input').addEventListener('focus', showChatContainer);
         document.getElementById('user-input').addEventListener('input', showChatContainer);
 
-        // Initial dummy bot message
-        // Add this line if you want a dummy message to appear initially in the chat
-        // addMessage('Hello! How can I assist you today?', 'bot');
+        // Initialize with welcome container visible
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('welcome-container').style.display = 'flex';
+            document.getElementById('logo').style.display = 'block';
+        });
     </script>
 </body>
 </html>
