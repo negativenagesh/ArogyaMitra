@@ -40,6 +40,8 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
             position: relative;
+            word-wrap: break-word; /* Ensure long words break and wrap within the container */
+            overflow: hidden; /* Prevent overflow */
         }
         .chat-message.user {
             background-color: #007bff;
