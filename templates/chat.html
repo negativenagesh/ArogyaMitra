@@ -21,7 +21,7 @@
         }
         .chat-message {
             width: auto;
-            max-width: 90%;
+            max-width: 80%; /* Adjusted for better fit */
             background-color: #444; /* Slightly lighter dark grey */
             border-radius: 10px;
             padding: 10px;
@@ -36,16 +36,13 @@
             background-color: #007bff;
             color: #fff;
             text-align: right;
-            left: 10%;
-            bottom: 20px;
+            right: 20px;
         }
         .chat-message.bot {
             background-color: #e0e0e0;
             color: #000;
             text-align: left;
-            left: 10%;
-            top: 0;
-            display: none; /* Hidden initially */
+            left: 20px;
         }
         .chat-input-container {
             position: fixed;
@@ -101,13 +98,19 @@
             messageElement.textContent = content;
             document.body.appendChild(messageElement);
 
-            // Position message at the top and adjust size
-            messageElement.style.top = `calc(20px + ${messageIndex * 60}px)`; // Adjust spacing
-            messageElement.style.left = sender === 'user' ? '10%' : '10%'; // Align messages
-            messageElement.style.display = 'block';
-            
-            // Increase message index
-            messageIndex++;
+            // Position message based on sender and index
+            if (sender === 'user') {
+                messageElement.style.top = `20px`; // Always at the top
+                messageElement.style.right = `20px`; // Aligned to the right
+            } else {
+                messageElement.style.top = `calc(20px + ${messageIndex * 60}px)`; // Stacked below
+                messageElement.style.left = `20px`; // Aligned to the left
+            }
+
+            // Increase message index for bot responses
+            if (sender === 'bot') {
+                messageIndex++;
+            }
         }
 
         function sendMessage() {
