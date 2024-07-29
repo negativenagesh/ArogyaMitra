@@ -58,7 +58,7 @@
             flex-direction: column;
             align-items: flex-start;
             width: 100%;
-            height: calc(100vh - 120px - 70px); /* Adjust height to fit above the input container */
+            height: calc(100vh - 120px - 100px); /* Adjusted height to fit above the input container and leave space for disclaimer */
             margin-bottom: 70px;
             overflow-y: auto;
             box-sizing: border-box;
@@ -104,7 +104,7 @@
         .chat-input-container {
             display: none;
             position: fixed;
-            bottom: 0;
+            bottom: 50px; /* Moved up to make space for the disclaimer */
             width: 95%;
             max-width: 800px;
             background-color: #333;
