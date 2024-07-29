@@ -10,7 +10,6 @@
             font-family: Arial, sans-serif;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
             align-items: center;
             height: 100vh;
             background-color: #333; /* Dark grey background */
@@ -18,6 +17,16 @@
             padding: 20px;
             box-sizing: border-box;
             overflow: hidden;
+        }
+        .message-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 70px; /* Ensure space for input container */
+            overflow-y: auto;
+            box-sizing: border-box;
         }
         .chat-message {
             width: auto;
@@ -81,17 +90,6 @@
             cursor: pointer;
             border-radius: 5px; /* Optional: Rounded corners for the button */
         }
-        /* Ensure that the input container is always at the bottom */
-        .message-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100%;
-            max-width: 600px;
-            margin-bottom: 70px; /* Ensure space for input container */
-            overflow-y: auto;
-            box-sizing: border-box;
-        }
     </style>
 </head>
 <body>
@@ -108,7 +106,7 @@
             messageElement.className = `chat-message ${sender}`;
             messageElement.textContent = content;
             document.getElementById('message-container').appendChild(messageElement);
-            // Scroll to the bottom to show the latest message
+            // Ensure message is visible by scrolling into view if needed
             messageElement.scrollIntoView({ behavior: 'smooth' });
         }
 
