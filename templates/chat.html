@@ -24,9 +24,11 @@
             align-items: center;
             width: 100%;
             max-width: 600px;
+            height: calc(100vh - 70px); /* Adjust height to account for input container */
             margin-bottom: 70px; /* Ensure space for input container */
-            overflow-y: auto;
+            overflow-y: scroll;
             box-sizing: border-box;
+            padding-right: 10px; /* Ensure scrollbar does not overlap text */
         }
         .chat-message {
             width: auto;
