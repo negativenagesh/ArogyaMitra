@@ -18,21 +18,6 @@
             padding: 20px;
             box-sizing: border-box;
         }
-        .chat-input-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            width: 90%;
-            max-width: 600px;
-            background-color: #333; /* Same color as webpage background */
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            padding: 10px;
-            box-sizing: border-box;
-            margin-bottom: 20px;
-        }
         .chat-output-container, .chat-input-container {
             width: 90%;
             max-width: 600px;
@@ -50,11 +35,23 @@
             display: none; /* Initially hidden */
             align-items: flex-start;
             margin-right: auto;
+            margin-top: 20px;
         }
         .chat-input-container {
             display: flex;
-            align-items: flex-end;
-            margin-left: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            bottom: 20px;
+            width: 90%;
+            max-width: 600px;
+            background-color: #333; /* Same color as webpage background */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            padding: 10px;
+            box-sizing: border-box;
         }
         .chat-output {
             flex: 1;
@@ -108,18 +105,18 @@
     </style>
 </head>
 <body>
-    <div class="chat-input-container" id="initial-input-container">
+    <div class="chat-output-container" id="chat-output-container">
+        <div class="chat-output" id="chat-output"></div>
+    </div>
+    <div class="chat-input-container" id="chat-input-container">
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Type a message...">
             <button onclick="sendMessage()">Send</button>
         </div>
     </div>
-    <div class="chat-output-container" id="chat-output-container">
-        <div class="chat-output" id="chat-output"></div>
-    </div>
     <script>
         const chatOutput = document.getElementById('chat-output');
-        const initialInputContainer = document.getElementById('initial-input-container');
+        const initialInputContainer = document.getElementById('chat-input-container');
         const chatOutputContainer = document.getElementById('chat-output-container');
 
         function addMessage(content, sender) {
@@ -144,8 +141,10 @@
             if (message) {
                 addMessage(message, 'user');
                 userInput.value = '';
-                initialInputContainer.style.display = 'none';
                 chatOutputContainer.style.display = 'flex';
+                initialInputContainer.style.position = 'absolute';
+                initialInputContainer.style.bottom = '20px';
+                initialInputContainer.style.right = '20px';
             }
             // Here, you would send the message to your backend and get the response
             // For demonstration, let's just echo the message
