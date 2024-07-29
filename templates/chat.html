@@ -18,20 +18,12 @@
             box-sizing: border-box;
             overflow: hidden;
         }
-        #logo {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 80%;
-            max-height: 80%;
-        }
         .message-container {
             display: flex;
             flex-direction: column;
             align-items: flex-start; /* Align messages to the left */
             width: 100%;
-            height: calc(100vh - 70px); /* Adjust height to account for input container */
+            height: calc(100vh - 120px); /* Adjust height to account for input container and disclaimer */
             margin-bottom: 70px; /* Ensure space for input container */
             overflow-y: scroll;
             box-sizing: border-box;
@@ -67,7 +59,7 @@
         }
         .chat-input-container {
             position: fixed;
-            bottom: 20px;
+            bottom: 50px;
             width: 90%;
             max-width: 600px;
             background-color: #333; /* Same color as webpage background */
@@ -105,16 +97,27 @@
             cursor: not-allowed;
             opacity: 0.5;
         }
+        .disclaimer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            color: #fff;
+            font-size: 14px;
+            z-index: 5; /* Below the input container */
+        }
     </style>
 </head>
 <body>
-    <img id="logo" src="https://wallpapercave.com/w/wp7425305" alt="Logo">
     <div class="message-container" id="message-container"></div>
     <div class="chat-input-container" id="chat-input-container">
         <div class="chat-input">
             <input type="text" id="user-input" placeholder="Type a message..." onkeydown="handleKeyDown(event)">
             <button id="send-button" onclick="sendMessage()">Send</button>
         </div>
+    </div>
+    <div class="disclaimer">
+        ArogyaMitra won't answer all your questions.
     </div>
     <script>
         let waitingForResponse = false;
@@ -137,7 +140,6 @@
                 addMessage(message, 'user');
                 userInput.value = '';
                 disableInput(true);
-                document.getElementById('logo').style.display = 'none'; // Hide the logo after first input
 
                 // Simulate bot response
                 waitingForResponse = true;
