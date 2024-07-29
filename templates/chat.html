@@ -54,6 +54,8 @@
             overflow-y: scroll;
             box-sizing: border-box;
             padding: 0; /* Remove padding to allow scrollbar to be at the edge */
+            position: relative; /* Position relative to ensure messages are contained within */
+            margin-top: 60px; /* Add margin-top to prevent overlap with the logo */
         }
         .chat-message {
             width: auto;
@@ -133,9 +135,17 @@
             font-size: 14px;
             z-index: 5; /* Below the input container */
         }
+        .logo {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            width: 150px; /* Adjust size as needed */
+            z-index: 5; /* Ensure it is above messages */
+        }
     </style>
 </head>
 <body>
+    <img src="path-to-your-logo/logo.png" alt="ArogyaMitra Logo" class="logo" id="logo">
     <div class="welcome-container" id="welcome-container">
         <div class="welcome-title">ArogyaMitra</div>
         <div class="welcome-slogan">"Wellness Crafted for You"</div>
