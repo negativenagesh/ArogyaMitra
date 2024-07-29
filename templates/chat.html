@@ -31,6 +31,7 @@
             height: 100%;
             text-align: center;
             color: #fff;
+            position: relative; /* Added for positioning */
         }
         .welcome-title {
             font-size: 6em; /* Increased size */
@@ -50,11 +51,9 @@
             align-items: flex-start; /* Align messages to the left */
             width: 100%;
             height: calc(100vh - 120px); /* Adjust height to account for input container and disclaimer */
-            margin-bottom: 70px; /* Ensure space for input container */
             overflow-y: scroll;
             box-sizing: border-box;
             padding: 0; /* Remove padding to allow scrollbar to be at the edge */
-            position: relative; /* Position relative to ensure messages are contained within */
             margin-top: 60px; /* Add margin-top to prevent overlap with the logo */
         }
         .chat-message {
@@ -139,13 +138,14 @@
             position: fixed;
             top: 10px;
             left: 10px;
-            width: 150px; /* Adjust size as needed */
+            font-size: 3em; /* Adjust size as needed */
+            color: #fff;
+            display: none; /* Initially hidden */
             z-index: 5; /* Ensure it is above messages */
         }
     </style>
 </head>
 <body>
-    <img src="path-to-your-logo/logo.png" alt="ArogyaMitra Logo" class="logo" id="logo">
     <div class="welcome-container" id="welcome-container">
         <div class="welcome-title">ArogyaMitra</div>
         <div class="welcome-slogan">"Wellness Crafted for You"</div>
@@ -160,6 +160,7 @@
     <div class="disclaimer">
         ArogyaMitra won't answer all your questions, still in R&D
     </div>
+    <div class="logo" id="logo">ArogyaMitra</div>
     <script>
         let waitingForResponse = false;
 
@@ -167,7 +168,7 @@
             document.getElementById('welcome-container').style.display = 'none';
             document.getElementById('message-container').style.display = 'flex';
             document.getElementById('chat-input-container').style.display = 'flex';
-            document.getElementById('logo').style.display = 'none'; // Hide logo on interaction
+            document.getElementById('logo').style.display = 'block'; // Show logo after user interaction
         }
 
         function addMessage(content, sender) {
@@ -195,7 +196,6 @@
                     addMessage('This is a response from the chatbot.', 'bot');
                     waitingForResponse = false;
                     disableInput(false);
-                    restoreLogo(); // Restore logo after response
                 }, 2000); // Adjust timeout as needed
             }
         }
@@ -212,10 +212,6 @@
             document.getElementById('send-button').disabled = disable;
         }
 
-        function restoreLogo() {
-            document.getElementById('logo').style.display = 'block'; // Show logo again
-        }
-
         // Show chat container after the first interaction
         document.getElementById('user-input').addEventListener('focus', showChatContainer);
         document.getElementById('user-input').addEventListener('input', showChatContainer);
@@ -223,7 +219,7 @@
         // Initialize with welcome container visible
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('welcome-container').style.display = 'flex';
-            document.getElementById('logo').style.display = 'block';
+            document.getElementById('logo').style.display = 'none'; // Ensure logo is hidden initially
         });
     </script>
 </body>
