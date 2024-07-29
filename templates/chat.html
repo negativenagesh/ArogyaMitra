@@ -236,11 +236,24 @@
                 disableInput(true);
 
                 waitingForResponse = true;
-                setTimeout(() => {
-                    addMessage('This is a response from the chatbot.', 'bot');
+                fetch('/get', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'msg=' + encodeURIComponent(message)
+                })
+                .then(response => response.text())
+                .then(data => {
+                    addMessage(data, 'bot');
                     waitingForResponse = false;
                     disableInput(false);
-                }, 2000);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    waitingForResponse = false;
+                    disableInput(false);
+                });
             }
         }
 
