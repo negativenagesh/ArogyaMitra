@@ -624,3 +624,17 @@ This is typically done to reduce clutter in the output, especially when warnings
 This sequence allows for interactive querying of the QA system and provides a pause before the program terminates.
 
 # Frontend
+![1](https://github.com/user-attachments/assets/4e14131c-d8e6-4e53-9bee-ccf015360b61)
+
+
+![3](https://github.com/user-attachments/assets/ffa98b0f-1535-4b6a-8f15-0d8faff9b5e7)
+
+
+![2](https://github.com/user-attachments/assets/7a50dcdb-1b00-46a3-aff5-9252a9b73c60)
+
+
+![4](https://github.com/user-attachments/assets/e4de0988-3c7b-4de2-8f9f-7800a1b148c5)
+
+
+
+
