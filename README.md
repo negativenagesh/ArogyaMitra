@@ -622,3 +622,5 @@ This is typically done to reduce clutter in the output, especially when warnings
 * Waits for the user to press Enter before closing the program, allowing them to view the results before the program exits.
 
 This sequence allows for interactive querying of the QA system and provides a pause before the program terminates.
+
+# Frontend
