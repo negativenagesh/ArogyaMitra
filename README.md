@@ -1,4 +1,4 @@
-# End-to-end Medical Chatbot using Llama 2
+# ArogyaMitra Chatbot using Llama 2 (end to end)
 
 ## To set up and run this project locally, follow these steps:
 
