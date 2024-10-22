@@ -6,7 +6,7 @@ import os
 
 load_dotenv()
 
-PINECONE_API_KEY= os.environ.get('PINECONE_APE_KEY')
+PINECONE_API_KEY= os.environ.get('PINECONE_API_KEY')
 PINECONE_API_ENV=os.environ.get('PINECONE_API_ENV')
 
 print(PINECONE_API_KEY)
