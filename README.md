@@ -1,5 +1,6 @@
 # ArogyaMitra Chatbot using Llama 2 (end to end)
 
+for in-depth understanding refer  - [my notes here](https://github.com/negativenagesh/ArogyaMitra/tree/main/Notes)
 ## To set up and run this project locally, follow these steps:
 
 1. Clone the Repository:
