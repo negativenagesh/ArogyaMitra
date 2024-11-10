@@ -1,4 +1,4 @@
-# ArogyaMitra Chatbot using Llama 2 (end to end)
+# ArogyaMitra Chatbot using Llama 2 (end to end) No API calls, Model runs locally..
 
 for in-depth understanding refer  - [my notes here](https://github.com/negativenagesh/ArogyaMitra/tree/main/Notes)
 ## To set up and run this project locally, follow these steps:
@@ -33,6 +33,18 @@ llama-2-7b-chat.ggmlv3.q4_0.bin
 ## From following link:
 
 https://huggingface.co/TheBloke/Llama-2-7B-Chat-GGML/tree/main
+
+# Frontend
+![1](https://github.com/user-attachments/assets/4e14131c-d8e6-4e53-9bee-ccf015360b61)
+
+
+![3](https://github.com/user-attachments/assets/ffa98b0f-1535-4b6a-8f15-0d8faff9b5e7)
+
+
+![2](https://github.com/user-attachments/assets/7a50dcdb-1b00-46a3-aff5-9252a9b73c60)
+
+
+![4](https://github.com/user-attachments/assets/e4de0988-3c7b-4de2-8f9f-7800a1b148c5)
 
 ## What is ctransformers?
 
@@ -623,19 +635,3 @@ This is typically done to reduce clutter in the output, especially when warnings
 * Waits for the user to press Enter before closing the program, allowing them to view the results before the program exits.
 
 This sequence allows for interactive querying of the QA system and provides a pause before the program terminates.
-
-# Frontend
-![1](https://github.com/user-attachments/assets/4e14131c-d8e6-4e53-9bee-ccf015360b61)
-
-
-![3](https://github.com/user-attachments/assets/ffa98b0f-1535-4b6a-8f15-0d8faff9b5e7)
-
-
-![2](https://github.com/user-attachments/assets/7a50dcdb-1b00-46a3-aff5-9252a9b73c60)
-
-
-![4](https://github.com/user-attachments/assets/e4de0988-3c7b-4de2-8f9f-7800a1b148c5)
-
-
-
-
